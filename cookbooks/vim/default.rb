@@ -2,13 +2,15 @@ package "vim" do
   action :install
 end
 
-directory "/home/vagrant/.vim/bundle" do
+directory "#{node[:home]}/.vim/bundle" do
   action :create
-  owner "vagrant"
-  group "vagrant"
+  user node["user"]
+  owner node["user"]
+  group node["user"]
 end
 
-git "/home/vagrant/.vim/bundle/neobundle.vim" do
+git "#{node[:home]}/.vim/bundle/neobundle.vim" do
   repository "https://github.com/Shougo/neobundle.vim"
-  user "vagrant"
+  user node[:user]
+  not_if "test -d #{node[:home]}/.vim/bundle/neobundle.vim"
 end
