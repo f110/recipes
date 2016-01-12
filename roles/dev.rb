@@ -1,0 +1,5 @@
+include_recipe "../cookbooks/zsh/default"
+include_recipe "../cookbooks/vim/default"
+include_recipe "../cookbooks/git/default"
+include_recipe "../cookbooks/user/default"
+include_recipe "../cookbooks/dot-files/default"
