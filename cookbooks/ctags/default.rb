@@ -1,1 +1,1 @@
-package "ctags" do; end
+package "exuberant-ctags" do; end

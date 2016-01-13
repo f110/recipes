@@ -17,6 +17,10 @@ file "/home/#{node["user"]}/.ssh/config" do
 Host bitbucket.org
     StrictHostKeyChecking no
     IdentityFile ~/.ssh/id_rsa.github
+
+Host github.com
+    StrictHostKeyChecking no
+    IdentityFile ~/.ssh/id_rsa.github
 EOH
 end
 
