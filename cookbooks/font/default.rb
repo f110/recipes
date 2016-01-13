@@ -1,1 +1,1 @@
-package "font-defaju" do; end
+package "fonts-dejavu" do; end

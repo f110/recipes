@@ -2,13 +2,13 @@ git "/home/#{node["user"]}/dot-files" do
   repository "git@bitbucket.org:rightoverture/dot-files.git"
   action :sync
   user node[:user]
-  not_if "test -d /home/#{node["user"]}/.git"
+  not_if "test -d #{node[:home]}/.git"
 end
 
 execute "move .git directory" do
   action :run
-  command "mv /home/#{node["user"]}/dot-files/.git /home/#{node["user"]}"
-  not_if "test -d /home/vagrant/.git"
+  command "mv #{node[:home]}/dot-files/.git #{node[:home]}"
+  not_if "test -d #{node[:home]}/.git"
 end
 
 execute "extract dot-files" do
@@ -16,7 +16,7 @@ execute "extract dot-files" do
   command "git reset --hard"
   user node[:user]
   cwd node[:home]
-  not_if "test -e /home/#{node["user"]}/.zshrc"
+  not_if "test -e #{node[:home]}/.zshrc"
 end
 
 execute "init submodule" do
