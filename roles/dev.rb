@@ -14,6 +14,8 @@ include_recipe "../cookbooks/build-essential/default"
 include_recipe "../cookbooks/golang/default"
 include_recipe "../cookbooks/ctags/default"
 include_recipe "../cookbooks/ag/default"
+include_recipe "../cookbooks/redis/default"
+include_recipe "../cookbooks/memcached/default"
 
 include_recipe "../cookbooks/dot-files/default"
 include_recipe "../cookbooks/peco/default"
