@@ -17,6 +17,14 @@ node[:plenv][:versions].each do |ver|
     command "PLENV_VERSION=#{ver} #{plenv_bin} install-cpanm"
     not_if "test -f #{node[:home]}/.plenv/versions/#{ver}/bin/cpanm"
   end
+
+  execute "install carton to #{ver}" do
+    action :run
+    cwd node[:home]
+    user node[:user]
+    command "PLENV_VERSION=#{ver} #{plenv_bin} exec cpanm Carton"
+    not_if "test -f #{node[:home]}/.plenv/versions/#{ver}/bin/carton"
+  end
 end
 
 execute "set global perl" do

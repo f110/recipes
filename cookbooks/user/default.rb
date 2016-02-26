@@ -9,6 +9,12 @@ directory "/home/#{node["user"]}" do
   owner node[:user]
 end
 
+directory "/home/#{node["user"]}/.ssh" do
+  action :create
+  user node[:user]
+  owner node[:user]
+end
+
 file "/home/#{node["user"]}/.ssh/config" do
   action :create
   user node[:user]
