@@ -2,7 +2,7 @@
 
 ```
 bash ./bootstrap.sh
-vagrant up
+docker run --privileged -d -p 2222:22 f110/xenial
 bundle exec itamae-secrets newkey --base=./secret --method=aes-passphrase
-bundle exec itamae ssh -h 192.168.50.12 -u vagrant -j vagrant.json roles/dev.rb -i ~/.vagrant.d/insecure_private_key
+bundle exec itamae ssh -h localhost -u docker -p 2222 -j docker.json roles/dev.rb
 ```

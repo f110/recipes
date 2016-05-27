@@ -1,5 +1,5 @@
 {
-  "user": "vagrant",
+  "user": "docker",
   "rbenv": {
     "versions": [
       "2.3.0",

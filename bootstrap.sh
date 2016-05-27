@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-vagrant plugin install vagrant-itamae
+if [ ! -f authorized_keys ]; then
+    cp ~/.ssh/id_rsa.pub authorized_keys
+end
+docker build -t f110/xenial .
