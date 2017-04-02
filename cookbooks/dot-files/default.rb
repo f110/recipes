@@ -1,8 +1,9 @@
 execute "add fingerprint of bitbucket.org to known_hosts" do
   action :run
-  command "ssh-keygen -R bitbucket.org && ssh-keyscan -H bitbucket.org >> #{node[:home]}/.ssh/known_hosts"
+  command "ssh-keyscan -H bitbucket.org >> #{node[:home]}/.ssh/known_hosts"
   user node[:user]
   cwd node[:home]
+  not_if "ssh-keygen -F bitbucket.org"
 end
 
 git "/home/#{node["user"]}/dot-files" do
