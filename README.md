@@ -11,4 +11,4 @@ for vagrant
 
 ```
 bundle exec itamae ssh -h localhost -p 2222 -u ubuntu -i ./.vagrant/machines/default/virtualbox/private_key -j node.json roles/dev.rb
-```}
+```
