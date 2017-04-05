@@ -12,3 +12,12 @@ directory "#{node[:home]}/local/go" do
   user node[:user]
   owner node[:user]
 end
+
+execute "add glide repository" do
+  action :run
+  command "add-apt-repository -y -u ppa:masterminds/glide"
+  user "root"
+  not_if "grep -q \"masterminds/glide\" /etc/apt/sources.list.d -R"
+end
+
+package "glide" do; end
